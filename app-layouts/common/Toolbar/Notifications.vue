@@ -50,27 +50,6 @@ const list = useNotifications().list
 
 const MAX_ITEMS = 7
 
-onMounted(() => {
-	if (window.innerWidth > 700 && list?.value[0] && list?.value[0].id !== 9999) {
-		setTimeout(() => {
-			const newItem: Notification = {
-				id: 9999,
-				category: "news",
-				type: "success",
-				title: "Good news",
-				description: "HI! You can buy this template on Themeforest, click here.",
-				read: false,
-				date: "Today",
-				action: () => {
-					window.open("https://themeforest.net/item/pinx-vuejs-admin-template/47799543", "_blank")
-				},
-				actionTitle: "Go to Themeforest"
-			}
-
-			useNotifications().prepend(newItem, { autoNotify: true })
-		}, 10000)
-	}
-})
 </script>
 
 <style lang="scss" scoped>

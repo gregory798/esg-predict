@@ -3,7 +3,7 @@ import { renderIcon } from "@/utils"
 import { h } from "vue"
 import { RouterLink } from "vue-router"
 
-const BlankIcon = "carbon:document-blank"
+const BlankIcon = "carbon:model"
 
 // eslint-disable-next-line unused-imports/no-unused-vars
 export default function getItems(mode: "vertical" | "horizontal", collapsed: boolean): MenuMixedOption[] {
@@ -17,7 +17,7 @@ export default function getItems(mode: "vertical" | "horizontal", collapsed: boo
 							name: "BlankPage"
 						}
 					},
-					{ default: () => "Blank Page" }
+					{ default: () => "Modèle YARD VE" }
 				),
 			key: "BlankPage",
 			icon: renderIcon(BlankIcon)
