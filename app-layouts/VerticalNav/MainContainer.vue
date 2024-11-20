@@ -1,0 +1,141 @@
+<template>
+	<div id="main" class="main" :class="{ 'sidebar-collapsed': sidebarCollapsed, 'sidebar-opened': !sidebarCollapsed }">
+		<n-scrollbar ref="scrollbar">
+			<Toolbar :boxed="toolbarBoxed" class="gradient-bg-body" />
+			<div class="view" :class="[{ boxed }, `route-${routeName}`]">
+				<slot />
+			</div>
+			<MainFooter v-if="footerShown" :boxed="boxed" />
+		</n-scrollbar>
+	</div>
+</template>
+
+<script lang="ts" setup>
+import MainFooter from "@/app-layouts/common/MainFooter.vue"
+import Toolbar from "@/app-layouts/common/Toolbar/index.vue"
+import { useThemeStore } from "@/stores/theme"
+import { toggleSidebarClass } from "@/utils/theme"
+import { NScrollbar } from "naive-ui"
+import { computed, onMounted, ref, watch } from "vue"
+import { useRoute, useRouter } from "vue-router"
+
+const themeStore = useThemeStore()
+const router = useRouter()
+const route = useRoute()
+const routeName = computed<string>(() => route.name?.toString() || "")
+const sidebarCollapsed = computed(() => themeStore.sidebar.collapsed)
+const boxed = computed(() => themeStore.isBoxed)
+const footerShown = computed(() => themeStore.isFooterShown)
+const toolbarBoxed = computed(() => themeStore.isToolbarBoxed)
+const scrollbar = ref()
+
+onMounted(() => {
+	router.afterEach(() => {
+		if (scrollbar?.value?.scrollTo) {
+			scrollbar?.value.scrollTo({ top: 0, behavior: "smooth" })
+		}
+	})
+
+	watch(
+		sidebarCollapsed,
+		val => {
+			toggleSidebarClass(val, "main", "sidebar-opened", "sidebar-collapsed")
+		},
+		{
+			immediate: true
+		}
+	)
+})
+</script>
+
+<style lang="scss" scoped>
+@import "./variables";
+
+.main {
+	width: 100%;
+	padding-left: var(--sidebar-open-width);
+	position: relative;
+	transition: padding var(--sidebar-anim-ease) var(--sidebar-anim-duration);
+	background-color: var(--bg-body-color);
+
+	:deep() {
+		& > .n-scrollbar {
+			& > .n-scrollbar-rail {
+				top: calc(var(--toolbar-height) + 2px);
+			}
+
+			& > .n-scrollbar-container {
+				& > .n-scrollbar-content {
+					min-height: 100%;
+					display: flex;
+					flex-direction: column;
+				}
+			}
+		}
+	}
+
+	&.sidebar-collapsed {
+		padding-left: var(--sidebar-close-width);
+	}
+
+	.view {
+		padding: var(--view-padding);
+		padding-top: calc(var(--view-padding) / 2);
+		flex-grow: 1;
+		width: 100%;
+
+		&.boxed {
+			max-width: var(--boxed-width);
+			margin: 0 auto;
+		}
+	}
+
+	@media (max-width: $sidebar-bp) {
+		padding-left: 0px;
+		transition: all var(--sidebar-anim-ease) var(--sidebar-anim-duration);
+
+		&.sidebar-collapsed {
+			padding-left: 0px;
+		}
+
+		&.sidebar-opened {
+			//transform: scale(0.8) translateX(100%) rotateY(35deg);
+			//transform: scale(0.8) translateX(100%);
+			//transform-origin: center left;
+			//border-radius: 16px;
+			overflow: hidden;
+			opacity: 0.5;
+		}
+	}
+
+	@media (min-width: ($sidebar-bp + 1px)) {
+		:deep() {
+			header.toolbar {
+				.logo-box {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.direction-rtl {
+	.main {
+		padding-left: unset;
+		padding-right: var(--sidebar-open-width);
+
+		&.sidebar-collapsed {
+			padding-left: unset;
+			padding-right: var(--sidebar-close-width);
+		}
+
+		@media (max-width: $sidebar-bp) {
+			padding-right: 0px;
+
+			&.sidebar-collapsed {
+				padding-right: 0px;
+			}
+		}
+	}
+}
+</style>
