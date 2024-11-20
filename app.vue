@@ -16,30 +16,24 @@
 			You can find Method B in the file /middleware/route.global.ts
 		-->
 		<ClientOnly>
-			<component
-				:is="layoutComponent"
-				:class="[`theme-${themeName}`, `layout-${layoutComponentName}`, themeName, { 'opacity-0': loading }]"
-			>
+			<component :is="layoutComponent"
+				:class="[`theme-${themeName}`, `layout-${layoutComponentName}`, themeName, { 'opacity-0': loading }]">
 				<!--
 					Here you can choose whether to keep each page alive by adding the `keepalive` attribute to the <NuxtPage/> component.
 
 					Please note:
 					Keep in mind that third-party components might not handle this behavior.
 				-->
-				<NuxtPage
-					:key="forceRefresh"
-					:transition="{
-						name: `router-${routerTransition}`,
-						mode: 'out-in',
-						appear: true
-					}"
-					:class="[`theme-${themeName}`, `layout-${layoutComponentName}`, themeName]"
-				/>
+				<NuxtPage :key="forceRefresh" :transition="{
+					name: `router-${routerTransition}`,
+					mode: 'out-in',
+					appear: true
+				}" :class="[`theme-${themeName}`, `layout-${layoutComponentName}`, themeName]" />
 			</component>
 
 			<SplashScreen :show="loading" />
 			<SearchDialog v-if="isLogged" />
-			<LayoutSettings />
+			<!-- <LayoutSettings /> -->
 		</ClientOnly>
 	</Provider>
 </template>

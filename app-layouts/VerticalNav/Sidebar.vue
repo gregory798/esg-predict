@@ -1,15 +1,12 @@
 <template>
-	<aside
-		id="sidebar"
-		class="sidebar flex flex-col"
-		:class="{ collapsed: sidebarCollapsed, opened: !sidebarCollapsed }"
-	>
+	<aside id="sidebar" class="sidebar flex flex-col"
+		:class="{ collapsed: sidebarCollapsed, opened: !sidebarCollapsed }">
 		<div ref="sidebar" class="sidebar-wrap flex grow flex-col">
 			<SidebarHeader :logo-mini="sidebarClosed" />
 			<n-scrollbar>
 				<Navbar :collapsed="sidebarClosed" />
 			</n-scrollbar>
-			<SidebarFooter :collapsed="sidebarClosed" />
+
 		</div>
 	</aside>
 </template>

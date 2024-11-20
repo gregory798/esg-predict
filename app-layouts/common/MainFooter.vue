@@ -1,6 +1,6 @@
 <template>
 	<footer class="footer" :class="{ boxed }">
-		<div class="wrap flex items-center justify-end gap-3">
+		<!-- <div class="wrap flex items-center justify-end gap-3">
 			<div class="copy">
 				Made with
 				<Icon :size="22" class="mx-1 text-primary">
@@ -12,7 +12,7 @@
 				</a>
 				All rights Reserved © Copyright {{ year }}
 			</div>
-		</div>
+		</div> -->
 	</footer>
 </template>
 
@@ -49,9 +49,11 @@ const year = ref(new Date().getFullYear())
 				font-weight: bold;
 				text-decoration: none;
 			}
+
 			* {
 				display: inline;
 			}
+
 			i {
 				display: inline-block;
 			}
@@ -60,6 +62,7 @@ const year = ref(new Date().getFullYear())
 
 	&.boxed {
 		padding: 0;
+
 		.wrap {
 			padding: var(--view-padding);
 			padding-top: 0;

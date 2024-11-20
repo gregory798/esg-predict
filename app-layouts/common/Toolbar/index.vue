@@ -12,12 +12,12 @@
 			</ClientOnly>
 
 			<div class="bubble flex items-center">
-				<Search />
-				<LocaleSwitch />
+				<!-- <Search />
+				<LocaleSwitch /> -->
 				<FullscreenSwitch />
 				<ThemeSwitch />
-				<Notifications />
-				<Avatar />
+				<!-- <Notifications />
+				<Avatar /> -->
 			</div>
 		</div>
 	</header>
@@ -83,13 +83,11 @@ onMounted(() => {
 		left: 0;
 		z-index: -2;
 		backdrop-filter: blur(20px);
-		mask-image: linear-gradient(
-			to bottom,
-			rgba(0, 0, 0, 1) 0%,
-			rgba(0, 0, 0, 0.96) 70%,
-			rgba(0, 0, 0, 0.8) 80%,
-			rgba(0, 0, 0, 0) 100%
-		);
+		mask-image: linear-gradient(to bottom,
+				rgba(0, 0, 0, 1) 0%,
+				rgba(0, 0, 0, 0.96) 70%,
+				rgba(0, 0, 0, 0.8) 80%,
+				rgba(0, 0, 0, 0) 100%);
 	}
 
 	.wrap {
@@ -118,6 +116,7 @@ onMounted(() => {
 
 		@media (max-width: 700px) {
 			justify-content: space-between;
+
 			.breadcrumb {
 				display: none;
 			}
@@ -126,6 +125,7 @@ onMounted(() => {
 
 	&.boxed {
 		padding: 0;
+
 		.wrap {
 			padding: 0 var(--view-padding);
 			max-width: var(--boxed-width);
@@ -144,27 +144,26 @@ onMounted(() => {
 			left: 0;
 			z-index: -1;
 			background-color: var(--bg-sidebar-color);
-			background: linear-gradient(
-				to bottom,
-				rgba(var(--bg-sidebar-color-rgb) / 1) 0%,
-				rgba(var(--bg-sidebar-color-rgb) / 0.945) 8.6%,
-				rgba(var(--bg-sidebar-color-rgb) / 0.888) 16.2%,
-				rgba(var(--bg-sidebar-color-rgb) / 0.83) 22.9%,
-				rgba(var(--bg-sidebar-color-rgb) / 0.769) 28.9%,
-				rgba(var(--bg-sidebar-color-rgb) / 0.707) 34.4%,
-				rgba(var(--bg-sidebar-color-rgb) / 0.644) 39.5%,
-				rgba(var(--bg-sidebar-color-rgb) / 0.578) 44.5%,
-				rgba(var(--bg-sidebar-color-rgb) / 0.511) 49.5%,
-				rgba(var(--bg-sidebar-color-rgb) / 0.443) 54.7%,
-				rgba(var(--bg-sidebar-color-rgb) / 0.373) 60.3%,
-				rgba(var(--bg-sidebar-color-rgb) / 0.301) 66.4%,
-				rgba(var(--bg-sidebar-color-rgb) / 0.228) 73.3%,
-				rgba(var(--bg-sidebar-color-rgb) / 0.153) 81%,
-				rgba(var(--bg-sidebar-color-rgb) / 0.077) 89.9%,
-				rgba(var(--bg-sidebar-color-rgb) / 0) 100%
-			);
+			background: linear-gradient(to bottom,
+					rgba(var(--bg-sidebar-color-rgb) / 1) 0%,
+					rgba(var(--bg-sidebar-color-rgb) / 0.945) 8.6%,
+					rgba(var(--bg-sidebar-color-rgb) / 0.888) 16.2%,
+					rgba(var(--bg-sidebar-color-rgb) / 0.83) 22.9%,
+					rgba(var(--bg-sidebar-color-rgb) / 0.769) 28.9%,
+					rgba(var(--bg-sidebar-color-rgb) / 0.707) 34.4%,
+					rgba(var(--bg-sidebar-color-rgb) / 0.644) 39.5%,
+					rgba(var(--bg-sidebar-color-rgb) / 0.578) 44.5%,
+					rgba(var(--bg-sidebar-color-rgb) / 0.511) 49.5%,
+					rgba(var(--bg-sidebar-color-rgb) / 0.443) 54.7%,
+					rgba(var(--bg-sidebar-color-rgb) / 0.373) 60.3%,
+					rgba(var(--bg-sidebar-color-rgb) / 0.301) 66.4%,
+					rgba(var(--bg-sidebar-color-rgb) / 0.228) 73.3%,
+					rgba(var(--bg-sidebar-color-rgb) / 0.153) 81%,
+					rgba(var(--bg-sidebar-color-rgb) / 0.077) 89.9%,
+					rgba(var(--bg-sidebar-color-rgb) / 0) 100%);
 		}
 	}
+
 	&.gradient-bg-body {
 		&::before {
 			content: "";
@@ -176,22 +175,20 @@ onMounted(() => {
 			left: 0;
 			z-index: -1;
 			background-color: var(--bg-body-color);
-			background: linear-gradient(
-				to bottom,
-				rgba(var(--bg-body-color-rgb) / 1) 0%,
-				rgba(var(--bg-body-color-rgb) / 0.738) 19%,
-				rgba(var(--bg-body-color-rgb) / 0.541) 34%,
-				rgba(var(--bg-body-color-rgb) / 0.382) 47%,
-				rgba(var(--bg-body-color-rgb) / 0.278) 56.5%,
-				rgba(var(--bg-body-color-rgb) / 0.194) 65%,
-				rgba(var(--bg-body-color-rgb) / 0.126) 73%,
-				rgba(var(--bg-body-color-rgb) / 0.075) 80.2%,
-				rgba(var(--bg-body-color-rgb) / 0.042) 86.1%,
-				rgba(var(--bg-body-color-rgb) / 0.021) 91%,
-				rgba(var(--bg-body-color-rgb) / 0.008) 95.2%,
-				rgba(var(--bg-body-color-rgb) / 0.002) 98.2%,
-				rgba(var(--bg-body-color-rgb) / 0) 100%
-			);
+			background: linear-gradient(to bottom,
+					rgba(var(--bg-body-color-rgb) / 1) 0%,
+					rgba(var(--bg-body-color-rgb) / 0.738) 19%,
+					rgba(var(--bg-body-color-rgb) / 0.541) 34%,
+					rgba(var(--bg-body-color-rgb) / 0.382) 47%,
+					rgba(var(--bg-body-color-rgb) / 0.278) 56.5%,
+					rgba(var(--bg-body-color-rgb) / 0.194) 65%,
+					rgba(var(--bg-body-color-rgb) / 0.126) 73%,
+					rgba(var(--bg-body-color-rgb) / 0.075) 80.2%,
+					rgba(var(--bg-body-color-rgb) / 0.042) 86.1%,
+					rgba(var(--bg-body-color-rgb) / 0.021) 91%,
+					rgba(var(--bg-body-color-rgb) / 0.008) 95.2%,
+					rgba(var(--bg-body-color-rgb) / 0.002) 98.2%,
+					rgba(var(--bg-body-color-rgb) / 0) 100%);
 		}
 	}
 }
