@@ -17,10 +17,24 @@ export default function getItems(mode: "vertical" | "horizontal", collapsed: boo
 							name: "BlankPage"
 						}
 					},
-					{ default: () => "Modèle YARD VE" }
+					{ default: () => "Modèle" }
 				),
 			key: "BlankPage",
 			icon: renderIcon(BlankIcon)
+		},
+		{
+			label: () =>
+				h(
+					RouterLink,
+					{
+						to: {
+							name: "Prediction"
+						}
+					},
+					{ default: () => "Prédiction" }
+				),
+			key: "Prediction",
+			icon: renderIcon("pepicons-print:stars")
 		}
 	]
 }

@@ -1,15 +1,20 @@
 <template>
 	<div v-if="isDark && !mini" class="logo">
-		<img alt="logo" src="@/assets/images/brand-logo_dark.svg?url" />
+		<!-- <img alt="logo" src="@/assets/images/brand-logo_dark.svg?url" /> -->
+		<!-- <img alt="logo" src="@/assets/images/logoo.jpeg" /> -->
+		<h1 class="p-4">YARD VE</h1>
 	</div>
 	<div v-else-if="isLight && !mini" class="logo">
-		<img alt="logo" src="@/assets/images/brand-logo_light.svg?url" />
+		<!-- <img alt="logo" src="@/assets/images/brand-logo_light.svg?url" /> -->
+		<h1 class="p-4">YARD VE</h1>
 	</div>
 	<div v-else-if="isDark && mini" class="logo">
-		<img alt="logo" src="@/assets/images/brand-icon_dark.svg?url" />
+		<!-- <img alt="logo" src="@/assets/images/brand-icon_dark.svg?url" /> -->
+		<h1 class="p-4">YARD VE</h1>
 	</div>
 	<div v-else-if="isLight && mini" class="logo">
-		<img alt="logo" src="@/assets/images/brand-icon_light.svg?url" />
+		<!-- <img alt="logo" src="@/assets/images/brand-icon_light.svg?url" /> -->
+		<h1 class="p-4">YARD VE</h1>
 	</div>
 </template>
 
