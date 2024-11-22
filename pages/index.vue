@@ -11,7 +11,7 @@
 				<template #icon>
 					<Icon name="line-md:speedometer-loop" :size="20" />
 				</template>
-				Générer notation
+				Générer notation TEST
 			</n-button>
 		</n-space>
 
