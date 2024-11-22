@@ -11,7 +11,7 @@
 				<template #icon>
 					<Icon name="line-md:speedometer-loop" :size="20" />
 				</template>
-				Générer notation TEST
+				Générer notation
 			</n-button>
 		</n-space>
 
@@ -67,7 +67,7 @@
 <script setup lang="ts">
 definePageMeta({
 	name: "BlankPage",
-	title: "Prédiction ONNX",
+	title: "Modèle",
 	auth: true,
 	roles: "all"
 });

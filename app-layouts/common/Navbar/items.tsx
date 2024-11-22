@@ -35,6 +35,20 @@ export default function getItems(mode: "vertical" | "horizontal", collapsed: boo
 				),
 			key: "Prediction",
 			icon: renderIcon("pepicons-print:stars")
+		},
+		{
+			label: () =>
+				h(
+					RouterLink,
+					{
+						to: {
+							name: "Credits"
+						}
+					},
+					{ default: () => "Crédits" }
+				),
+			key: "Credits",
+			icon: renderIcon("noto:copyright")
 		}
 	]
 }
