@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
 
         console.log("Requête reçue par Nuxt API:", body);
 
-        const response = await $fetch('http://13.50.100.79/predict', {
+        const response = await $fetch('http://13.50.0.223/predict', {
             method: 'POST',
             body,
             headers: {
